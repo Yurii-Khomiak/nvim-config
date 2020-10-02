@@ -1,3 +1,3 @@
-GuiFont! InputMono:h11:l
+GuiFont! Input:h11:l
 GuiPopupmenu 0
 GuiTabline 0
