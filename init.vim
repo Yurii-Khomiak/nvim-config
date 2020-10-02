@@ -9,14 +9,17 @@ let mapleader = " "
 " Initialize plugin system
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim' " distraction-free mode
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdcommenter' " line commenting
 Plug 'vuciv/vim-bujo' " todo managing
+
+" autocmd FileType apache setlocal commentstring=#\ %s
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " Appearance
 Plug 'gruvbox-community/gruvbox'
@@ -125,12 +128,6 @@ let $FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border'
 nnoremap <leader>ob :Buffers<cr>
 nnoremap <leader>of :Files<cr>
 nnoremap <leader>og :GFiles<cr>
-
-" =============================================================================
-" Line commenting
-
-let g:NERDToggleCheckAllLines = 0
-map <leader>cc <plug>NERDCommenterToggle
 
 " =============================================================================
 " Polyglot
