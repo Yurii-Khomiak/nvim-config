@@ -43,7 +43,7 @@ set undofile
 set encoding=utf-8
 set nu rnu " display relative line numbers
 set tw=0 " remove auto line wrapping
-set backspace=2 " fix backspace behaviour
+set backspace=indent,eol,start
 set incsearch
 set wildmode=longest,list,full " enable autocompletion
 set mouse="" " disable mouse (very important)
@@ -191,6 +191,8 @@ nnoremap <leader>ce :e ~/.config/nvim/init.vim<cr>
 " Bindings for pasting
 cnoremap <C-'> <C-r>"
 inoremap <C-'> <C-r>"
+inoremap <C-=> <C-r>+
+nnoremap <C-=> "+p
 
 " Binding for replace all
 nnoremap S :%s//g<left><left>
@@ -198,6 +200,13 @@ nnoremap S :%s//g<left><left>
 " Center when circling through search results
 nnoremap n nzz
 nnoremap N Nzz
+
+" Center in top half of the screen
+nnoremap ze zz15<C-e>
+
+" Slower scroll bindings
+nnoremap <C-,> 5<C-y>
+nnoremap <C-.> 5<C-e>
 
 " Shortcutting split navigation, saving a keypress
 map <leader>h :wincmd h<cr>
@@ -228,17 +237,12 @@ inoremap <down>  <nop>
 inoremap <left>  <nop>
 inoremap <right> <nop>
 
-" Disable backspace
-inoremap <BS> <nop>
-nnoremap <BS> <nop>
-
-" Mapping C-j and C-k to down and up arrows respectively to ease selection from
-" autocompletion menu
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
 
-" Mapping C-j and C-k to down and up arrows respectively to ease selection from
-" history
+" Bindings for arrow keys
 cnoremap <C-j> <down>
 cnoremap <C-k> <up>
 cnoremap <C-h> <left>
