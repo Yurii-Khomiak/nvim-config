@@ -13,6 +13,7 @@ inoremap <buffer> ;c.l console.log();<left><left>
 inoremap <buffer> ;of Object.freeze({<cr>})<esc>O
 inoremap <buffer> ;re return ;<esc>i
 inoremap <buffer> ;rq require('')<esc>hi
+inoremap <buffer> ;n new (<++>)<esc>F(i
 
 inoremap <buffer> ;i if () {<cr><++><cr>}<esc>=2k0f(a
 inoremap <buffer> ;ei else if () {<cr><++><cr>}<esc>=2k0f(a
@@ -40,8 +41,12 @@ inoremap <buffer> ;@pr @property {
 inoremap <buffer> ;@re @returns {
 inoremap <buffer> ;@td /**<cr> * @typedef {<cr>*/<esc>=2kjA
 
-" Run Tape test from current buffer
-nnoremap <buffer> <leader>tr :!node %<cr>
+" Save buffer and execute tape test
+nnoremap <buffer> <leader>te :w<cr>:!node<space>%<space><bar><space>tap-spec<cr>
+
+nnoremap <buffer> <leader>to $?^test<cr>3la.only<esc>0
+nnoremap <buffer> <leader>ts $?^test<cr>3la.skip<esc>0
+nnoremap <buffer> <leader>tn $?^test<cr>f.dt(0
 
 " Tape snippets
 inoremap <buffer> ;tc test('', assert => {<cr><cr>assert.end();<cr>});<esc>3k$F'i
@@ -49,4 +54,5 @@ inoremap <buffer> ;all assert.equal(, <++>, <++>);<esc>T(i
 inoremap <buffer> ;alt assert.equal(, true, <++>);<esc>T(i
 inoremap <buffer> ;alf assert.equal(, false, <++>);<esc>T(i
 inoremap <buffer> ;at assert.throws(, <++>, <++>);<esc>T(i
+inoremap <buffer> ;as 'given<space><space>should<space><++>'<esc>2bhi
 
