@@ -16,6 +16,7 @@ Plug 'junegunn/goyo.vim' " distraction-free mode
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'vuciv/vim-bujo' " todo managing
+Plug 'mbbill/undotree'
 
 " autocmd FileType apache setlocal commentstring=#\ %s
 Plug 'tpope/vim-commentary'
@@ -133,6 +134,17 @@ nnoremap <leader>og :GFiles<cr>
 " Polyglot
 
 let g:javascript_plugin_jsdoc = 1
+
+" =============================================================================
+" Undotree
+
+nmap <leader>U :UndotreeToggle<cr>
+
+let g:undotree_ShortIndicators = 1
+let g:undotree_RelativeTimestamp = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_DiffAutoOpen = 0
+let g:undotree_SplitWidth = 40
 
 " =============================================================================
 " Coc related
