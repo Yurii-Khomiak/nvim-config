@@ -1,8 +1,21 @@
 " Indentation
 autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 expandtab
 
-" extract variable from if condition
-nnoremap <buffer> <leader>ei "pyiWj0f("ydi("pP?<C-r>p<cr>niconst <esc>A = <C-r>y;<esc>0w
+" extract variable from if's condition
+nnoremap <buffer> <leader>ei :call LoadInputIntoRegister("Variable name: ")<cr>0f("ydi("pP
+			\Oconst <C-r>p<esc>A = <C-r>y;<esc>0w
+
+" extract function in two parts: replace, put
+vnoremap <buffer> <leader>efr <esc>:call LoadInputIntoRegister("Function name: ")<cr>
+			\gv"yc<C-r>p();<esc>
+nnoremap <buffer> <leader>efp iconst <C-r>p = () => {<cr>};<esc>=1k"yp=i{
+
+function! LoadInputIntoRegister(prompt)
+	call inputsave()
+	let result = input(a:prompt)
+	call inputrestore()
+	let @p = result
+endfunction
 
 " General snippets
 inoremap <buffer> ;<space> <space>
