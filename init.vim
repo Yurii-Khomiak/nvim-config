@@ -196,6 +196,9 @@ nnoremap <leader>rw :CocSearch <C-r>=expand("<cword>")<cr><cr>
 " =============================================================================
 " General bindings
 
+" Save buffer
+nnoremap <C-s> :w<cr>
+
 " Config related
 nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>
 nnoremap <leader>ce :e ~/.config/nvim/init.vim<cr>
@@ -227,7 +230,7 @@ map <leader>k :wincmd k<cr>
 map <leader>l :wincmd l<cr>
 
 " Goyo 'zen' mode binding (centers editor)
-nnoremap <leader>z :Goyo \| set linebreak<cr>
+nnoremap <leader>z :Goyo<cr>
 
 " Provide support for JSON with comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
