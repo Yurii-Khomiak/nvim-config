@@ -215,6 +215,7 @@ nnoremap S :%s//g<left><left>
 " Center when circling through search results
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
 
 " Center in top half of the screen
 nnoremap ze zz15<C-e>
