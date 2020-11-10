@@ -1,6 +1,9 @@
 " Indentation
 autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 expandtab
 
+" extract variable from if condition
+nnoremap <buffer> <leader>ei "pyiWj0f("ydi("pP?<C-r>p<cr>niconst <esc>A = <C-r>y;<esc>0w
+
 " General snippets
 inoremap <buffer> ;<space> <space>
 inoremap <buffer> ;. this.
