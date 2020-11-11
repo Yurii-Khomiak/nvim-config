@@ -40,13 +40,13 @@ inoremap <buffer> ;. this.
 inoremap <buffer> ;{ {<cr>}<esc>O
 inoremap <buffer> ;} {  }<esc>hi
 inoremap <buffer> ;cn const  = <++>;<esc>2bhi
-inoremap <buffer> ;l let  = <++>;<esc>0whi
 inoremap <buffer> ;c.e console.error();<left><left>
 inoremap <buffer> ;c.l console.log();<left><left>
 inoremap <buffer> ;of Object.freeze({<cr>})<esc>O
 inoremap <buffer> ;re return ;<esc>i
 inoremap <buffer> ;rq require('')<esc>hi
 inoremap <buffer> ;n new (<++>)<esc>F(i
+inoremap <buffer> ;ch <esc>$i<cr>
 
 inoremap <buffer> ;i if () {<cr><++><cr>}<esc>=2k0f(a
 inoremap <buffer> ;ei else if () {<cr><++><cr>}<esc>=2k0f(a
@@ -66,6 +66,11 @@ inoremap <buffer> ;mu (<++>) {<cr><++><cr>}<esc>=2k0f(i
 inoremap <buffer> ;mg get () {<cr><++><cr>}<esc>=2k0f(i
 inoremap <buffer> ;ms set (<++>) {<cr><++><cr>}<esc>=2k0f(i
 inoremap <buffer> ;ma async (<++>) {<cr><++><cr>}<esc>=2k$F(i
+
+" List snippets
+inoremap <buffer> ;la .map( => <++>)<esc>F(a
+inoremap <buffer> ;lr .reduce((acc, ) => <++>, <++>)<esc>F)i
+inoremap <buffer> ;lf .filter( => <++>)<esc>F(a
 
 " JSDoc snippets
 inoremap <buffer> ;** /**<cr> * <cr> */<esc>=2kjA
