@@ -231,7 +231,7 @@ map <leader>k :wincmd k<cr>
 map <leader>l :wincmd l<cr>
 
 " Goyo 'zen' mode binding (centers editor)
-nnoremap <leader>z :Goyo<cr>
+nnoremap <leader>z :Goyo 50%x100%<cr>
 
 " Provide support for JSON with comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
