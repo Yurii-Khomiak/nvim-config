@@ -1,7 +1,4 @@
 {
   "diagnostic.enable": true,
-  "diagnostic.refreshAfterSave":  true,
-  "diagnostic.messageTarget": "echo",
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false
+  "diagnostic.refreshAfterSave":  true
 }
