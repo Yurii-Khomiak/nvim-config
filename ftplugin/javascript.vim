@@ -1,8 +1,16 @@
 " Indentation
 autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 expandtab
 
+" File movements
+nnoremap <buffer> <leader>mp :e package.json<cr>
+
+" =============================================================================
+" Refactorings
+
 " extract variable
 vnoremap <buffer> <leader>evr <esc>:call LoadInputIntoRegister("Variable name: ")<cr>
+			\gv"yc<C-r>p<esc>Oconst <C-r>p = <C-r>y;<esc>==
+vnoremap <buffer> <leader>evR <esc>:call LoadInputIntoRegister("Variable name: ")<cr>
 			\gv"yc<C-r>p<esc>
 nnoremap <buffer> <leader>evp Oconst <C-r>p = <C-r>y;<esc>==
 nnoremap <buffer> <leader>evP iconst <C-r>p = <C-r>y;<esc>==
@@ -22,6 +30,9 @@ function! LoadInputIntoRegister(prompt)
 	call inputrestore()
 	let @p = result
 endfunction
+
+" =============================================================================
+" Snippets
 
 " General snippets
 inoremap <buffer> ;<space> <space>

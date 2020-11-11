@@ -200,7 +200,7 @@ nnoremap <leader>rw :CocSearch <C-r>=expand("<cword>")<cr><cr>
 nnoremap <C-s> :w<cr>
 
 " Config related
-nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>
+nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>:e<cr>
 nnoremap <leader>ce :e ~/.config/nvim/init.vim<cr>
 
 " Bindings for pasting
