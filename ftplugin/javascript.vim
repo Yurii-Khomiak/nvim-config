@@ -4,10 +4,12 @@ autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 expandtab
 " General snippets
 inoremap <buffer> ;<space> <space>
 inoremap <buffer> ;. this.
+inoremap <buffer> ;( ({  })<esc>2hi
+inoremap <buffer> ;) ({<cr>})<esc>O
 inoremap <buffer> ;{ {<cr>}<esc>O
 inoremap <buffer> ;} {  }<esc>hi
 inoremap <buffer> ;cn const  = <++>;<esc>2bhi
-inoremap <buffer> ;l let  = <++>;<esc>0whi
+inoremap <buffer> ;l let  = <++>;<esc>$F=hi
 inoremap <buffer> ;c.e console.error();<left><left>
 inoremap <buffer> ;c.l console.log();<left><left>
 inoremap <buffer> ;of Object.freeze({<cr>})<esc>O
@@ -42,17 +44,19 @@ inoremap <buffer> ;@re @returns {
 inoremap <buffer> ;@td /**<cr> * @typedef {<cr>*/<esc>=2kjA
 
 " Save buffer and execute tape test
-nnoremap <buffer> <leader>te :w<cr>:!node<space>%<space><bar><space>tap-spec<cr>
+command! RunJSTest :w | !node<space>%<space><bar><space>tap-spec
+nnoremap <buffer> <leader>te :RunJSTest<cr>
 
-nnoremap <buffer> <leader>to $?^test<cr>3la.only<esc>0
-nnoremap <buffer> <leader>ts $?^test<cr>3la.skip<esc>0
-nnoremap <buffer> <leader>tn $?^test<cr>f.dt(0
+nnoremap <buffer> <leader>to $?^test<cr>3la.only<esc><C-o>
+nnoremap <buffer> <leader>ts $?^test<cr>3la.skip<esc><C-o>
+nnoremap <buffer> <leader>tn $?^test<cr>f.dt(<C-o>
 
 " Tape snippets
 inoremap <buffer> ;tc test('', assert => {<cr><cr>assert.end();<cr>});<esc>3k$F'i
 inoremap <buffer> ;all assert.equal(, <++>, <++>);<esc>T(i
 inoremap <buffer> ;alt assert.equal(, true, <++>);<esc>T(i
 inoremap <buffer> ;alf assert.equal(, false, <++>);<esc>T(i
+inoremap <buffer> ;ad assert.deepEqual(, <++>, <++>);<esc>T(i
 inoremap <buffer> ;at assert.throws(, <++>, <++>);<esc>T(i
 inoremap <buffer> ;as 'given<space><space>should<space><++>'<esc>2bhi
 

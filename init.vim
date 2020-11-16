@@ -200,9 +200,11 @@ nnoremap S :%s//g<left><left>
 " Center when circling through search results
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
 
 " Center in top half of the screen
 nnoremap ze zz15<C-e>
+nnoremap <C-^> <C-^>zz
 
 " Slower scroll bindings
 nnoremap <C-,> 5<C-y>
@@ -247,4 +249,9 @@ cnoremap <C-j> <down>
 cnoremap <C-k> <up>
 cnoremap <C-h> <left>
 cnoremap <C-l> <right>
+
+" =============================================================================
+" General bindings
+
+command! RmRO :!attrib -r %
 
