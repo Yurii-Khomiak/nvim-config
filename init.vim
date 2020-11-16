@@ -16,6 +16,7 @@ Plug 'junegunn/goyo.vim' " distraction-free mode
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'vuciv/vim-bujo' " todo managing
+Plug 'mbbill/undotree'
 
 " autocmd FileType apache setlocal commentstring=#\ %s
 Plug 'tpope/vim-commentary'
@@ -135,6 +136,17 @@ nnoremap <leader>og :GFiles<cr>
 let g:javascript_plugin_jsdoc = 1
 
 " =============================================================================
+" Undotree
+
+nmap <leader>U :UndotreeToggle<cr>
+
+let g:undotree_ShortIndicators = 1
+let g:undotree_RelativeTimestamp = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_DiffAutoOpen = 0
+let g:undotree_SplitWidth = 40
+
+" =============================================================================
 " Coc related
 
 " Use K to show documentation in preview window
@@ -184,8 +196,11 @@ nnoremap <leader>rw :CocSearch <C-r>=expand("<cword>")<cr><cr>
 " =============================================================================
 " General bindings
 
+" Save buffer
+nnoremap <C-s> :w<cr>
+
 " Config related
-nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>
+nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>:e<cr>
 nnoremap <leader>ce :e ~/.config/nvim/init.vim<cr>
 
 " Bindings for pasting
@@ -217,7 +232,7 @@ map <leader>k :wincmd k<cr>
 map <leader>l :wincmd l<cr>
 
 " Goyo 'zen' mode binding (centers editor)
-nnoremap <leader>z :Goyo \| set linebreak<cr>
+nnoremap <leader>z :Goyo 50%x100%<cr>
 
 " Provide support for JSON with comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
