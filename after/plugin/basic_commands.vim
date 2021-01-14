@@ -1,0 +1,2 @@
+command! RmRO :!attrib -r %
+

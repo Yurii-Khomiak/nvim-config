@@ -1,5 +1,5 @@
 " Indentation
-autocmd FileType haskell setlocal shiftwidth=4 softtabstop=4 expandtab
+setlocal shiftwidth=4 softtabstop=4 expandtab
 
 " General snippets
 inoremap <buffer> ;<space> <space>

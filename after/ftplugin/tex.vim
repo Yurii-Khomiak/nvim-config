@@ -1,5 +1,5 @@
 " Indentation
-autocmd FileType tex setlocal shiftwidth=2 softtabstop=2
+setlocal shiftwidth=2 softtabstop=2
 
 " Snippets
 inoremap <buffer> ;b \textbf{

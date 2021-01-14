@@ -1,5 +1,5 @@
 " Indentation
-autocmd FileType javascript setlocal shiftwidth=4 softtabstop=4 expandtab
+setlocal shiftwidth=4 softtabstop=4 expandtab
 
 " File movements
 nnoremap <buffer> <leader>mp :e package.json<cr>
@@ -82,7 +82,7 @@ inoremap <buffer> ;@re @returns {
 inoremap <buffer> ;@td /**<cr> * @typedef {<cr>*/<esc>=2kjA
 
 " Save buffer and execute tape test
-command! RunJSTest :w<bar>!node<space>%<space><bar><space>tap-spec
+command! RunJSTest :w<bar>!node<space>%<space><bar><space>tap-spec<cr>
 nnoremap <buffer> <leader>te :RunJSTest<cr>
 
 nnoremap <buffer> <leader>to $?^test<cr>3la.only<esc><C-o>
