@@ -6,6 +6,8 @@ local setup_telescope = function(mappings)
 
       sorting_strategy = "ascending",
 
+      file_sorter = require('telescope.sorters').get_fzy_sorter,
+
       mappings = mappings
     }
   }
