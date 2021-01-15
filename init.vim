@@ -28,11 +28,18 @@ Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
-" =============================================================================
-" Search & replace (refactor)
+if has('nvim')
+	lua require('yuk.telescope')
+endif
 
-nnoremap <leader>sp :Rg<space>
-nnoremap <leader>sw :Rg <C-R>=expand("<cword>")<cr><cr>
+" =============================================================================
+" Search & replace
+
+if !has('nvim')
+	nnoremap <leader>sp :Rg<space>
+	nnoremap <leader>fw :Rg <C-R>=expand("<cword>")<cr><cr>
+
+endif
 
 nnoremap <leader>rp :CocSearch<space>
 nnoremap <leader>rP :CocSearch<space>--no-ignore<space>

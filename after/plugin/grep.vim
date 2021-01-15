@@ -19,3 +19,9 @@ nnoremap <leader>ob :Buffers<cr>
 nnoremap <leader>of :Files<cr>
 nnoremap <leader>og :GFiles<cr>
 
+" =============================================================================
+" telescope
+
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+
