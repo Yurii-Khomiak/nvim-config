@@ -1,7 +1,9 @@
-local custom_nvim_lspconfig_attach = function(...) end
+local on_attach_listener = function(...)
+  require('completion').on_attach(...)
+end
 
 require('nlua.lsp.nvim').setup(require('lspconfig'), {
-    on_attach = custom_nvim_lspconfig_attach,
+    on_attach = on_attach_listener 
 
     globals = {
     }
