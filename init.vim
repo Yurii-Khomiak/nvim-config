@@ -22,6 +22,17 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" treesitter
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/playground'
+
+" Neovim lsp Plugins
+Plug 'neovim/nvim-lspconfig'
+Plug 'tjdevries/nlua.nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'euclidianAce/BetterLua.vim'
+
 " Appearance
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -29,14 +40,14 @@ Plug 'vim-airline/vim-airline'
 call plug#end()
 
 if has('nvim')
-	lua require('yuk.telescope')
+	lua require('yuk')
 endif
 
 " =============================================================================
 " Search & replace
 
 if !has('nvim')
-	nnoremap <leader>sp :Rg<space>
+	nnoremap <leader>fW :Rg<space>
 	nnoremap <leader>fw :Rg <C-R>=expand("<cword>")<cr><cr>
 
 endif

@@ -22,13 +22,16 @@ end
 
 local define_mappings = function()
   map_tele('<leader>ff', 'fd')
-  -- k for 'kurrent'
-  map_tele('<leader>fk', 'search_dir_with_current_file')
-  map_tele('<leader>fw', 'find_current_word')
-  map_tele('<leader>fW', 'find_word')
+  map_tele('<leader>fk', 'search_dir_with_current_file') -- k for 'kurrent'
   map_tele('<leader>fc', 'search_nvim_config')
   map_tele('<leader>f`', 'search_telescope_sources')
+
+  map_tele('<leader>fw', 'find_current_word')
+  map_tele('<leader>fW', 'live_grep')
   map_tele('<leader>f~', 'find_word_in_telescope_sources')
+
+  map_tele('<leader>fm', 'marks')
+  map_tele('<leader>fb', 'buffers', { show_all_buffers = true })
 end
 
 local setup_mappings = {

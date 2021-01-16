@@ -11,26 +11,29 @@ function MyApi.search_dir_with_current_file()
 end
 
 function MyApi.search_nvim_config()
-  builtin.find_files{ cwd = "~/.config/nvim" }
+  builtin.git_files{ cwd = "~/.config/nvim" }
 end
 
 function MyApi.search_telescope_sources()
   builtin.find_files{ cwd = "~/.config/nvim/plugged/telescope.nvim" }
 end
 
-function MyApi.find_word_in_telescope_sources()
+function MyApi.find_current_word()
+  local current_word = vim.fn.expand("<cword>")
   builtin.grep_string{
-    cwd = "~/.config/nvim/plugged/telescope.nvim",
-    search = vim.fn.input("grep > ")
+    prompt_title = "Search: " .. current_word,
+    search = current_word
   }
 end
 
-function MyApi.find_current_word()
-  builtin.grep_string{ search = vim.fn.expand("<cword>") }
+function MyApi.live_grep()
+  builtin.live_grep()
 end
 
-function MyApi.find_word()
-  builtin.grep_string({ search = vim.fn.input("grep > ") })
+function MyApi.find_word_in_telescope_sources()
+  builtin.live_grep{
+    cwd = "~/.config/nvim/plugged/telescope.nvim",
+  }
 end
 
 local create_api = function()

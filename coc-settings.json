@@ -1,4 +1,3 @@
 {
-  "diagnostic.enable": true,
-  "diagnostic.refreshAfterSave":  true
+  "diagnostic.enable": true
 }
