@@ -16,6 +16,7 @@ Plug 'mbbill/undotree'
 " autocmd FileType apache setlocal commentstring=#\ %s
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
