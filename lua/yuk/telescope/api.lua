@@ -11,7 +11,7 @@ function MyApi.search_dir_with_current_file()
 end
 
 function MyApi.search_nvim_config()
-  builtin.git_files{ cwd = "~/.config/nvim" }
+  builtin.find_files{ cwd = "~/.config/nvim" }
 end
 
 function MyApi.search_telescope_sources()

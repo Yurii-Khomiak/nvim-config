@@ -21,11 +21,9 @@ Plug 'tpope/vim-fugitive'
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
-" treesitter
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
@@ -43,6 +41,8 @@ call plug#end()
 if has('nvim')
 	lua require('yuk')
 endif
+
+let g:coc_disable_startup_warning = 1
 
 " =============================================================================
 " Search & replace
