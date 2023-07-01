@@ -26,16 +26,21 @@ Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
-" Neovim lsp Plugins
-Plug 'neovim/nvim-lspconfig'
-Plug 'tjdevries/nlua.nvim'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
-Plug 'euclidianAce/BetterLua.vim'
-
 " Appearance
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
+
+" LSP Support
+Plug 'neovim/nvim-lspconfig'                           " Required
+Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'} " Optional
+Plug 'williamboman/mason-lspconfig.nvim'               " Optional
+
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'         " Required
+Plug 'hrsh7th/cmp-nvim-lsp'     " Required
+Plug 'L3MON4D3/LuaSnip'         " Required
+
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
 call plug#end()
 
