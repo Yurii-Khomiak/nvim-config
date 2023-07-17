@@ -1,4 +1,3 @@
--- require('yuk.treesitter')
 -- require('yuk.treesitter-context')
 -- require('yuk.lsp')
 
