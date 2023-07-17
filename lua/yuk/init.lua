@@ -1,5 +1,8 @@
-require('yuk.treesitter')
-require('yuk.treesitter-context')
+-- require('yuk.treesitter')
+-- require('yuk.treesitter-context')
+-- require('yuk.lsp')
+
 require('yuk.telescope')
-require('yuk.lsp')
+require('yuk.remap')
+require('yuk.plugins')
 
