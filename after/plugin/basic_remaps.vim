@@ -1,6 +1,3 @@
-" Save buffer
-nnoremap <C-s> :w<cr>
-
 " Binding for replace all
 nnoremap S :%s//g<left><left>
 
@@ -13,19 +10,12 @@ nnoremap * *zz
 nnoremap ze zz15<C-e>
 nnoremap <C-^> <C-^>zz
 
-" Slower scroll bindings
-nnoremap <C-,> 5<C-y>
-nnoremap <C-.> 5<C-e>
-
 " Config related
-nnoremap <leader>cs :so ~/.config/nvim/init.vim<cr>:e<cr>
-nnoremap <leader>ce :e ~/.config/nvim/init.vim<cr>
+nnoremap <leader>cs :so ~/.config/nvim/init.lua<cr>:e<cr>
+nnoremap <leader>ce :e ~/.config/nvim/init.lua<cr>
 
 " Bindings for pasting
-cnoremap <C-'> <C-r>"
-inoremap <C-'> <C-r>"
-inoremap <C-=> <C-r>+
-nnoremap <C-=> "+p
+nnoremap <C-p> "+p
 
 " Disable arrow keys
 nnoremap <up>    <nop>
