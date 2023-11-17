@@ -8,7 +8,7 @@ end
 setkm('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
 setkm('n', '<leader>sg', builtin.git_files, { desc = '[S]earch [G]it' })
 setkm('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
-setkm('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
+setkm('n', '<leader>sr', builtin.buffers, { desc = '[S]earch [B]uffers' })
 
 setkm('n', '<leader>sw', MyApi.search_word, { desc = '[S]earch [W]ord' })
 setkm('n', '<leader>s*', MyApi.find_current_word, { desc = '[S]earch current [W]ord' })

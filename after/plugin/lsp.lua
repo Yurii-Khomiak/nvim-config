@@ -1,14 +1,24 @@
+-- NVIM API completion
+local neodev = vim.F.npcall(require, "neodev")
+if neodev then
+  neodev.setup {
+    override = function(_, library)
+      library.enabled = true
+      library.plugins = true
+    end,
+    lspconfig = true,
+    pathStrict = true,
+  }
+end
+
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
+  'gopls'
 })
-
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
-
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

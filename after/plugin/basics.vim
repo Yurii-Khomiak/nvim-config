@@ -3,7 +3,7 @@ syntax on " enable syntax highlighting
 filetype plugin on
 
 set exrc " ".nvimrc" or ".exrc"
-set wrap
+set nowrap
 set noerrorbells
 set nohlsearch
 set encoding=utf-8
@@ -12,7 +12,6 @@ set tw=0 " remove auto line wrapping
 set backspace=indent,eol,start
 set incsearch
 set wildmode=longest,list,full " enable autocompletion
-set mouse="" " disable mouse (very important)
 set splitbelow splitright " More intuitive split direction than default
 
 " Default indentation

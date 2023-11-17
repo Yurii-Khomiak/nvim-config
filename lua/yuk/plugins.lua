@@ -17,12 +17,16 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
+    use 'nvim-treesitter/playground'
 
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
 
     use 'mbbill/undotree'
+
+    use 'folke/neodev.nvim'
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
