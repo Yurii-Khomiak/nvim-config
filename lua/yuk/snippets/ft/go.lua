@@ -44,7 +44,7 @@ local function make_eni(pos)
     return sn(pos,fmta(
         [[
             if err != nil {
-                return <result>,err
+                return <result>, err
             }<finish>
         ]],
         {
@@ -68,8 +68,22 @@ local efi = sn(1, fmta(
     }
 ))
 
+local if_snip = sn(1, fmta(
+    [[
+        if <condition> {
+            <body>
+        }<finish>
+    ]],
+    {
+        condition = i(1),
+        body = i(2),
+        finish = i(0),
+    }
+))
+
 ls.add_snippets("go", {
     s("eni", make_eni(1)),
     s("efi", efi),
+    s("if[", if_snip),
 })
 

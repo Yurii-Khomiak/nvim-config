@@ -14,7 +14,6 @@ end
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
-
 lsp.ensure_installed({
   'tsserver',
   'gopls'
@@ -22,18 +21,16 @@ lsp.ensure_installed({
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = lsp.defaults.cmp_mappings({
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil,
+  })
 })
 
 lsp.set_preferences({
@@ -65,5 +62,26 @@ lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true
+})
+
+-------------------------------------------------------------------------------
+-- Go
+-------------------------------------------------------------------------------
+
+local lspconfig = require('lspconfig')
+
+lspconfig.gopls.setup({
+    settings = {
+        gopls = {
+            gofumpt = true
+        }
+    }
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format({async = false})
+  end
 })
 
