@@ -81,9 +81,23 @@ local if_snip = sn(1, fmta(
     }
 ))
 
+local ftest = sn(1, fmta(
+    [[
+        func Test<name>(t *testing.T) {
+            <body>
+        }<finish>
+    ]],
+    {
+        name = i(1),
+        body = i(2),
+        finish = i(0),
+    }
+))
+
 ls.add_snippets("go", {
     s("eni", make_eni(1)),
     s("efi", efi),
     s("if[", if_snip),
+    s("ftest", ftest),
 })
 

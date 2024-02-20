@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     use 'folke/neodev.nvim'
+    use 'folke/zen-mode.nvim'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
