@@ -16,7 +16,7 @@ nnoremap <leader>ce :e ~/.config/nvim/init.lua<cr>
 
 " Bindings for yanking/pasting
 nnoremap <C-p> "+p
-vnoremap <C-p> c<cr><esc>k"+p
+vnoremap <C-p> "+p
 cnoremap <C-p> <C-r>+
 nnoremap <leader>y "+y
 nnoremap <leader>Y 0"+y$
