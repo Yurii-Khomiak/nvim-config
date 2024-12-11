@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local themes = require('telescope.themes')
 
 local get_dirname = function(str)
     return str:match("(.*[/\\])")
@@ -6,24 +7,34 @@ end
 
 local MyApi = {}
 
-function MyApi.search_dir_with_current_file()
-    builtin.find_files{ cwd = get_dirname(vim.fn.expand("%")) }
+MyApi.search_dir_with_current_file = function()
+    builtin.find_files{ cwd = get_dirname(vim.fn.expand('%')) }
 end
 
-function MyApi.search_nvim_config()
-    builtin.find_files{ cwd = "~/.config/nvim" }
+MyApi.search_nvim_config = function()
+    builtin.find_files{ cwd = vim.fn.stdpath('config') }
 end
 
-function MyApi.search_word()
-    builtin.grep_string({ search = vim.fn.input('Grep > ') })
+MyApi.search_word = function()
+    builtin.grep_string(themes.get_ivy{
+        search = vim.fn.input('Grep > ')
+    })
 end
 
-function MyApi.find_current_word()
+MyApi.find_current_word = function()
     local current_word = vim.fn.expand("<cword>")
     builtin.grep_string{
         prompt_title = "Search: " .. current_word,
         search = current_word
     }
+end
+
+-- for science
+MyApi.planets = function()
+    builtin.planets({
+        show_pluto = true,
+        show_moon = true,
+    })
 end
 
 return MyApi
