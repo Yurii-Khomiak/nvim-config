@@ -19,7 +19,7 @@ opts.splitbelow = true
 opts.splitright = true
 
 -- Line numbers and rulers
-opts.nu = true
+opts.number = true
 opts.rnu = true
 opts.colorcolumn = '80,100'
 vim.cmd('highlight ColorColumn ctermbg=0 guibg=lightgrey')
@@ -43,6 +43,10 @@ opts.updatetime = 50
 -- Show preview on replace
 opts.inccommand = "split"
 
+-- Search
+opts.smartcase = true
+opts.ignorecase = true
+
 -- Undo
 opts.swapfile = false
 opts.backup = false
@@ -56,7 +60,5 @@ vim.cmd([[augroup MyBasicAutocommands
     au!
     " Disables automatic commenting on newline
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-    " Provide support for JSON with comments
-    autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END]])
 

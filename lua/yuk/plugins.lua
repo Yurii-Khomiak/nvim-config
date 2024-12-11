@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
         end,
     }
     use 'nvim-treesitter/playground'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
