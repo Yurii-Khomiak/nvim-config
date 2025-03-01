@@ -22,7 +22,7 @@ opts.splitright = true
 opts.number = true
 opts.rnu = true
 opts.colorcolumn = '80,100'
-vim.cmd('highlight ColorColumn ctermbg=0 guibg=lightgrey')
+vim.cmd('highlight ColorColumn ctermbg=0 guibg=grey')
 
 -- Indentation
 opts.expandtab = true
@@ -55,10 +55,4 @@ opts.undofile = true
 -- Show trailing whitespaces
 vim.cmd([[:highlight ExtraWhitespace ctermbg=red guibg=red]])
 vim.cmd([[:match ExtraWhitespace /\s\+$/]])
-
-vim.cmd([[augroup MyBasicAutocommands
-    au!
-    " Disables automatic commenting on newline
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-augroup END]])
 
