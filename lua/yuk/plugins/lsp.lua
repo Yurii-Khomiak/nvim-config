@@ -15,13 +15,16 @@ end
 
 local config_lua = function(lspconfig)
     -- LSP repo: https://github.com/luals/lua-language-server
-    lspconfig.lua_ls.setup {}
+
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    lspconfig.lua_ls.setup { capabilities = capabilities }
 end
 
 return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            { "saghen/blink.cmp" },
             {
                 "folke/lazydev.nvim",
                 ft = "lua", -- only load on lua files
@@ -32,7 +35,7 @@ return {
                         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                     },
                 },
-            }
+            },
         },
         config = function()
             local lspconfig = require('lspconfig')
