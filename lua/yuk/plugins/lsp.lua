@@ -20,6 +20,25 @@ local config_lua = function(lspconfig)
     lspconfig.lua_ls.setup { capabilities = capabilities }
 end
 
+local config_perl = function(lspconfig)
+    -- LSP repo: https://github.com/FractalBoy/perl-language-server
+
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    lspconfig.perlpls.setup {
+        capabilities = capabilities,
+        settings = {
+            perl = {
+                perlcritic = {
+                    enabled = false
+                },
+                syntax = {
+                    enabled = true
+                },
+            },
+        },
+    }
+end
+
 return {
     {
         "neovim/nvim-lspconfig",
@@ -43,6 +62,7 @@ return {
             config_keybindings()
 
             config_lua(lspconfig)
+            config_perl(lspconfig)
         end
     }
 }
