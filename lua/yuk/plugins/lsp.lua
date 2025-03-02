@@ -17,20 +17,7 @@ local config_lua = function(lspconfig)
     -- LSP repo: https://github.com/luals/lua-language-server
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
-    lspconfig.lua_ls.setup {
-        capabilities = capabilities,
-        settings = {
-            Lua = {
-                format = {
-                    enable = true,
-                    defaultConfig = {
-                        indent_style = "space",
-                        indent_size = "4",
-                    }
-                },
-            }
-        },
-    }
+    lspconfig.lua_ls.setup { capabilities = capabilities }
 end
 
 local config_perl = function(lspconfig)
@@ -52,6 +39,34 @@ local config_perl = function(lspconfig)
     }
 end
 
+local config = function()
+    local lspconfig = require('lspconfig')
+
+    config_keybindings()
+
+    config_lua(lspconfig)
+    config_perl(lspconfig)
+
+    vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if not client then
+                return
+            end
+
+            if client.supports_method('textDocument/formatting') then
+                -- format on save
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    buffer = args.buf,
+                    callback = function()
+                        vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                    end
+                })
+            end
+        end,
+    })
+end
+
 return {
     {
         "neovim/nvim-lspconfig",
@@ -69,13 +84,6 @@ return {
                 },
             },
         },
-        config = function()
-            local lspconfig = require('lspconfig')
-
-            config_keybindings()
-
-            config_lua(lspconfig)
-            config_perl(lspconfig)
-        end
+        config = config,
     }
 }
