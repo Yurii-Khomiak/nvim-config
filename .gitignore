@@ -2,3 +2,4 @@ autoload/**
 plugged/**
 plugin/**
 .netrwhist
+lazy-lock.json
