@@ -39,6 +39,20 @@ local config_perl = function(lspconfig)
     }
 end
 
+local add_format_on_save = function(client, buf)
+    local filetype = vim.filetype.match({ buf = buf })
+    if (filetype == 'perl') then
+        return
+    end
+
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = buf,
+        callback = function()
+            vim.lsp.buf.format({ bufnr = buf, id = client.id })
+        end
+    })
+end
+
 local config = function()
     local lspconfig = require('lspconfig')
 
@@ -55,13 +69,7 @@ local config = function()
             end
 
             if client.supports_method('textDocument/formatting') then
-                -- format on save
-                vim.api.nvim_create_autocmd('BufWritePre', {
-                    buffer = args.buf,
-                    callback = function()
-                        vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                    end
-                })
+                add_format_on_save(client, args.buf)
             end
         end,
     })
