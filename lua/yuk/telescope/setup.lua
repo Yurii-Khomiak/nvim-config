@@ -33,4 +33,3 @@ local setup_telescope = function()
 end
 
 return setup_telescope
-
