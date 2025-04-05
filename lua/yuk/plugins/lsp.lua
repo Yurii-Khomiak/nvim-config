@@ -39,6 +39,29 @@ local config_perl = function(lspconfig)
     }
 end
 
+local config_python = function(lspconfig)
+    -- LSP repo: https://github.com/python-lsp/python-lsp-server
+    -- pip install "python-lsp-server[all]"
+    -- repo: https://github.com/python-lsp/pylsp-mypy
+    -- pip install pylsp-mypy
+
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    lspconfig.pylsp.setup {
+        capabilities = capabilities,
+        settings = {
+            pylsp = {
+                plugins = {
+                    pylsp_mypy = {
+                        enabled = true,
+                        live_mode = true,
+                        overrides = { true, "--check-untyped-defs" },
+                    }
+                }
+            }
+        }
+    }
+end
+
 local add_format_on_save = function(client, buf)
     local filetype = vim.filetype.match({ buf = buf })
     if (filetype == 'perl') then
@@ -60,6 +83,7 @@ local config = function()
 
     config_lua(lspconfig)
     config_perl(lspconfig)
+    config_python(lspconfig)
 
     vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
