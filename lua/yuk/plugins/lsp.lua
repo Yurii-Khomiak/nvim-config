@@ -54,12 +54,27 @@ local config_python = function(lspconfig)
                     pylsp_mypy = {
                         enabled = true,
                         live_mode = true,
-                        overrides = { true, "--check-untyped-defs" },
-                    }
+                        overrides = {
+                            true,
+                            "--check-untyped-defs",
+                        },
+                    },
+                    pycodestyle = {
+                        enabled = true,
+                        ignore = { "E501", "E261", "W503" }
+                    },
                 }
             }
         }
     }
+end
+
+local config_golang = function(lspconfig)
+    -- LSP repo: https://github.com/golang/tools/tree/master/gopls
+    -- go install golang.org/x/tools/gopls@latest
+
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    lspconfig.gopls.setup { capabilities = capabilities }
 end
 
 local add_format_on_save = function(client, buf)
@@ -84,6 +99,7 @@ local config = function()
     config_lua(lspconfig)
     config_perl(lspconfig)
     config_python(lspconfig)
+    config_golang(lspconfig)
 
     vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
