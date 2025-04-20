@@ -22,6 +22,9 @@ local pickers = {
     find_files = { theme = 'ivy' },
     help_tags = { theme = 'ivy' },
     buffers = { theme = 'ivy' },
+    colorscheme = {
+        enable_preview = true,
+    },
 }
 
 
